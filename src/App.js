@@ -25,13 +25,13 @@ class App extends Component {
   }
 
   fetchData = () => {
-    axios.get('/mock/data').then(response => {
-      console.log('------');
-      const {data} = response;
-
-      this.setState({...data});
-      this.renderPercentage(data.percentage || 0.1)
-    })
+    // axios.get('/mock/data').then(response => {
+    //   console.log('------');
+    //   const {data} = response;
+    //
+    //   this.setState({...data});
+    //   this.renderPercentage(data.percentage || 0.1)
+    // })
   };
 
   componentDidMount() {
