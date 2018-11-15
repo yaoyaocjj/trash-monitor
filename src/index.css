@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("./resource/hero3.jpeg") 100% no-repeat;
+  background: url("./resource/hero3.jpeg") no-repeat;
   background-size: cover;
 }
 

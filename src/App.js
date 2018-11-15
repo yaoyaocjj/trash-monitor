@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './App.css';
-import getData from './httpRequest'
-import drawLine from './chart/line'
 import axios from "axios";
 
 const mockData = [
@@ -32,13 +30,12 @@ class App extends Component {
     //   this.setState({...data});
     //   this.renderPercentage(data.percentage || 0.1)
     // })
+      this.renderPercentage(10)
+
   };
 
   componentDidMount() {
-    console.log('0000');
-    this.fetchData();
     setInterval(this.fetchData, 1000)
-    console.log('0000')
   }
 
   renderPercentage(percentage) {
@@ -86,7 +83,9 @@ class App extends Component {
           <div className="circle-container circle-container-count">
             <span className="count-text">{this.state.count}次</span>
           </div>
-          <div className="circle-container circle-container-other" />
+          <div className="circle-container circle-container-other" >
+            <div className="map"/>
+          </div>
           <div className="con">
             <div className="percent-circle percent-circle-left">
               <div className="left-content"></div>
@@ -94,7 +93,7 @@ class App extends Component {
             <div className="percent-circle percent-circle-right">
               <div className="right-content"></div>
             </div>
-            <div className="text-circle">0%</div>
+            <div className="text-circle">10%</div>
           </div>
         </div>
     );
