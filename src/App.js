@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import getData from './httpRequest'
 import drawLine from './chart/line'
+import axios from "axios";
 
 const mockData = [
   {
@@ -23,34 +24,52 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
-    this.fetchData()
-  }
-
   fetchData() {
-    getData().then(response => {
-      this.setState({
-        percentage: response.percentage,
-        count: response.count
-      })
+    axios.get('/mock/data').then(response => {
+      console.log('------')
+      const {data} = response
+
+      this.setState({...data})
+      this.renderPercentage(data.percentage || 0.1)
     })
   }
 
   componentDidMount() {
-    drawLine(document.getElementById('graph-line'), "trash-monitor-result", mockData)
-    // setInterval(() => this.fetchData, 10000)
+    console.log('0000')
+    this.fetchData()
+    // setInterval(() => this.fetchData, 1000)
+    console.log('0000')
+  }
+
+  renderPercentage(percentage) {
+    let leftContent  = document.querySelector(".left-content");
+    let rightContent  = document.querySelector(".right-content");
+    let textCircle   = document.querySelector(".text-circle");
+
+    let angle = percentage * 360 / 100;
+    console.log(leftContent)
+
+    if (angle > 360) {
+      angle = 0;
+    }
+
+    if (angle > 180) {
+      leftContent.setAttribute('style', 'transform: rotate(' + 180 + 'deg)');
+      rightContent.setAttribute('style', 'transform: rotate(' + (angle - 180) + 'deg)');
+    } else {
+      leftContent.setAttribute('style', 'transform: rotate(' + angle + 'deg)');
+    }
+
+    textCircle.innerHTML = parseInt(angle * 100 / 360) +'%'
   }
 
   render() {
     return (
         <div className="App">
-          <header className="App-header">
-            <h1 className="title">Trash Monitor</h1>
-          </header>
+          <div className="circle"/>
           <section className="trash-info">
             <div className="trash-image">
-              {/*<img src="https://img.icons8.com/office/300/000000/full-trash.png"/>*/}
-              <div className="icon-trash" style={{float: "left"}}>
+              <div className="icon-trash">
                 <div className="trash-lid" style={{backgroundColor: "#64646445"}}></div>
                 <div className="trash-container" style={{backgroundColor: "#64646445"}}></div>
                 <div className="trash-line-1"></div>
@@ -58,30 +77,24 @@ class App extends Component {
                 <div className="trash-line-3"></div>
               </div>
             </div>
-            <div className="trash-description">
-              <h2>今天你扔垃圾了吗</h2>
-              <p>
-                垃圾入箱、举手之劳。
-                垃圾混置是垃圾，垃圾分类是资源。
-                举手之劳，资源永续的源泉。
-                公德竞赛，今天正式开赛。
-                让环保扎根现在，用绿色昭示未来。
-              </p>
-            </div>
           </section>
-          <section className="trash-graph">
-            <div className="trash-description">
-              <h2>今天你扔垃圾了吗</h2>
-              <p>
-                垃圾入箱、举手之劳。
-                垃圾混置是垃圾，垃圾分类是资源。
-                举手之劳，资源永续的源泉。
-                公德竞赛，今天正式开赛。
-                让环保扎根现在，用绿色昭示未来。
-              </p>
+          <div className="app-description">
+            <h2 className="title">Trash Monitor</h2>
+            <p>An excellent waste monitoring software</p>
+          </div>
+          <div className="circle-container circle-container-count">
+            <span className="count-text">{this.state.count}次</span>
+          </div>
+          <div className="circle-container circle-container-other" />
+          <div className="con">
+            <div className="percent-circle percent-circle-left">
+              <div className="left-content"></div>
             </div>
-            <div id="graph-line"/>
-          </section>
+            <div className="percent-circle percent-circle-right">
+              <div className="right-content"></div>
+            </div>
+            <div className="text-circle">0%</div>
+          </div>
         </div>
     );
   }

@@ -2,6 +2,7 @@
   "name": "trash-monitor",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://10.205.21.135:8080",
   "dependencies": {
     "ajv": "^6.5.5",
     "axios": "^0.18.0",

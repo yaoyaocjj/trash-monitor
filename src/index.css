@@ -6,6 +6,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("./resource/hero.jpg") 100% no-repeat;
+  background-size: cover;
+}
+
+body:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: lightgoldenrodyellow;
+    opacity: 0.6;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
 }
 
 code {

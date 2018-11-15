@@ -1,61 +1,38 @@
 .App {
   width: 90%;
   margin: 0 auto;
-  font-family: "Arial Rounded MT Bold";
-  color: #61dafb;
+  z-index: -100;
 }
 
-.App-header {
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  text-align: center;
-}
-
-.title {
-
+.circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .trash-info {
-  position: relative;
-}
-
-.trash-image {
-  display: inline-block;
   text-align: center;
-  width: 30%;
-}
-
-.trash-graph {
-  position: relative;
-}
-
-.trash-description {
-  display: inline-block;
-  color: #333f48;
-  width: 60%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 30px;
+  padding-top: 25px;
 }
 
 #graph-line {
   display: inline-block;
-  width: 40%;
+  width: 100%;
   height: 300px;
-  margin-left: 60%;
+  display: none;
 }
 
 .icon-trash {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: relative;
   overflow: hidden;
-  margin-left: 25px;
-  margin-bottom: 25px;
+  margin: 0 auto;
 }
 
 .icon-trash .trash-lid {
@@ -144,5 +121,95 @@
   margin-left: -2%;
   bottom: 17%;
   background-color: grey;
+}
+
+.app-description {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.circle-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.circle-container-count {
+  left: 50%;
+}
+
+.circle-container-other {
+  left: 80%
+}
+
+.count-text {
+  line-height: 180px;
+}
+
+.con {
+  position:relative;
+  display:inline-block;
+  height:180px;
+  width:180px;
+  margin-left: 120px;
+}
+
+.percent-circle {
+  position:absolute;
+  height:100%;
+  background:#f00;
+  overflow: hidden;
+}
+
+.percent-circle-right {
+  right:0;
+  width:90px;
+  border-radius: 0 100px 100px 0/0 100px 100px 0;
+}
+
+.percent-circle-right .right-content{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform-origin:left center;
+  transform: rotate(0deg);
+  border-radius: 0 100px 100px 0/0 100px 100px 0;
+  background:#bbb;
+}
+
+.percent-circle-left {
+  width:90px;
+  border-radius: 100px 0 0 100px/100px 0 0 100px;
+}
+
+.percent-circle-left .left-content {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform-origin:right center;
+  transform: rotate(0deg);
+  border-radius: 100px 0 0 100px/100px 0 0 100px;
+  background:#bbb;
+}
+
+.text-circle {
+  position: absolute;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:80%;
+  width:80%;
+  left:10%;
+  top:10%;
+  border-radius:100%;
+  background:#000;
+  color:#fff;
 }
 
