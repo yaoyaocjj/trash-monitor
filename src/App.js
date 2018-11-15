@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import './lib/westeros';
+import React, {Component} from 'react';
 import './App.css';
 import getData from './httpRequest'
 import drawLine from './chart/line'
@@ -14,6 +13,7 @@ const mockData = [
     value: [3, 5, 15, 18, 20]
   }
 ]
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,7 @@ class App extends Component {
       count: 0
     }
   }
+
   componentWillMount() {
     this.fetchData()
   }
@@ -42,39 +43,46 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="title">Trash Monitor</h1>
-        </header>
-        <section className="trash-info">
-          <div className="trash-image">
-            <img src="https://img.icons8.com/office/300/000000/full-trash.png" />
-          </div>
-          <div className="trash-description">
-            <h2>今天你扔垃圾了吗</h2>
-            <p>
-              垃圾入箱、举手之劳。
-              垃圾混置是垃圾，垃圾分类是资源。
-              举手之劳，资源永续的源泉。
-              公德竞赛，今天正式开赛。
-              让环保扎根现在，用绿色昭示未来。
-            </p>
-          </div>
-        </section>
-        <section className="trash-graph">
-          <div className="trash-description">
-            <h2>今天你扔垃圾了吗</h2>
-            <p>
-              垃圾入箱、举手之劳。
-              垃圾混置是垃圾，垃圾分类是资源。
-              举手之劳，资源永续的源泉。
-              公德竞赛，今天正式开赛。
-              让环保扎根现在，用绿色昭示未来。
-            </p>
-          </div>
-          <div id="graph-line" />
-        </section>
-      </div>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="title">Trash Monitor</h1>
+          </header>
+          <section className="trash-info">
+            <div className="trash-image">
+              {/*<img src="https://img.icons8.com/office/300/000000/full-trash.png"/>*/}
+              <div className="icon-trash" style={{float: "left"}}>
+                <div className="trash-lid" style={{backgroundColor: "#64646445"}}></div>
+                <div className="trash-container" style={{backgroundColor: "#64646445"}}></div>
+                <div className="trash-line-1"></div>
+                <div className="trash-line-2"></div>
+                <div className="trash-line-3"></div>
+              </div>
+            </div>
+            <div className="trash-description">
+              <h2>今天你扔垃圾了吗</h2>
+              <p>
+                垃圾入箱、举手之劳。
+                垃圾混置是垃圾，垃圾分类是资源。
+                举手之劳，资源永续的源泉。
+                公德竞赛，今天正式开赛。
+                让环保扎根现在，用绿色昭示未来。
+              </p>
+            </div>
+          </section>
+          <section className="trash-graph">
+            <div className="trash-description">
+              <h2>今天你扔垃圾了吗</h2>
+              <p>
+                垃圾入箱、举手之劳。
+                垃圾混置是垃圾，垃圾分类是资源。
+                举手之劳，资源永续的源泉。
+                公德竞赛，今天正式开赛。
+                让环保扎根现在，用绿色昭示未来。
+              </p>
+            </div>
+            <div id="graph-line"/>
+          </section>
+        </div>
     );
   }
 }
