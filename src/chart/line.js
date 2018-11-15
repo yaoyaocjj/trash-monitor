@@ -12,7 +12,7 @@ export default function drawLine(dom, title, data) {
     };
   });
 
-  const charts = echarts.init(dom, 'westeros');
+  const charts = echarts.init(dom);
 
   charts.setOption({
     title: {
