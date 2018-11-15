@@ -13,7 +13,7 @@ const mockData = [
     name: "count",
     value: [3, 5, 15, 18, 20]
   }
-]
+];
 
 class App extends Component {
   constructor(props) {
@@ -24,20 +24,20 @@ class App extends Component {
     }
   }
 
-  fetchData() {
+  fetchData = () => {
     axios.get('/mock/data').then(response => {
-      console.log('------')
-      const {data} = response
+      console.log('------');
+      const {data} = response;
 
-      this.setState({...data})
+      this.setState({...data});
       this.renderPercentage(data.percentage || 0.1)
     })
-  }
+  };
 
   componentDidMount() {
-    console.log('0000')
-    this.fetchData()
-    // setInterval(() => this.fetchData, 1000)
+    console.log('0000');
+    this.fetchData();
+    setInterval(this.fetchData, 1000)
     console.log('0000')
   }
 
@@ -47,7 +47,7 @@ class App extends Component {
     let textCircle   = document.querySelector(".text-circle");
 
     let angle = percentage * 360 / 100;
-    console.log(leftContent)
+    console.log(leftContent);
 
     if (angle > 360) {
       angle = 0;
@@ -57,6 +57,7 @@ class App extends Component {
       leftContent.setAttribute('style', 'transform: rotate(' + 180 + 'deg)');
       rightContent.setAttribute('style', 'transform: rotate(' + (angle - 180) + 'deg)');
     } else {
+      rightContent.setAttribute('style', 'transform: rotate(' + 0 + 'deg)');
       leftContent.setAttribute('style', 'transform: rotate(' + angle + 'deg)');
     }
 
@@ -77,11 +78,11 @@ class App extends Component {
                 <div className="trash-line-3"></div>
               </div>
             </div>
-          </section>
-          <div className="app-description">
-            <h2 className="title">Trash Monitor</h2>
-            <p>An excellent waste monitoring software</p>
-          </div>
+            </section>
+            <div className="app-description">
+              <h2 className="title">Trash Monitor</h2>
+              <p>An excellent waste monitoring software</p>
+            </div>
           <div className="circle-container circle-container-count">
             <span className="count-text">{this.state.count}次</span>
           </div>
