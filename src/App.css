@@ -1,5 +1,4 @@
 .App {
-  width: 90%;
   margin: 0 auto;
   z-index: -100;
 }
@@ -130,26 +129,24 @@
   color: white;
 }
 
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .circle-container {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   /*background-color: white;*/
-  position: absolute;
-  transform: translateX(-50%);
   text-align: center;
   background-color: #eeeeee;
 }
 
 .circle-container-count {
-  left: 50%;
   font-size: 23px;
   font-weight: bold;
   color: #4f4f4f;
-}
-
-.circle-container-other {
-  left: 80%;
 }
 
 .map {
@@ -166,10 +163,8 @@
 
 .con {
   position:relative;
-  display:inline-block;
   height:180px;
   width:180px;
-  margin-left: 120px;
 }
 
 .percent-circle {

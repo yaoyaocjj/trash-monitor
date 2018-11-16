@@ -66,20 +66,22 @@ class App extends Component {
               <h2 className="title">Trash Monitor</h2>
               <p>An excellent waste monitoring software</p>
             </div>
-          <div className="circle-container circle-container-count">
-            <span className="count-text">{this.state.count}次</span>
-          </div>
-          <div className="circle-container circle-container-other" >
-            <div className="map"/>
-          </div>
-          <div className="con">
-            <div className="percent-circle percent-circle-left">
-              <div className="left-content"></div>
+          <div className="container">
+            <div className="con">
+              <div className="percent-circle percent-circle-left">
+                <div className="left-content"></div>
+              </div>
+              <div className="percent-circle percent-circle-right">
+                <div className="right-content"></div>
+              </div>
+              <div className="text-circle">0%</div>
             </div>
-            <div className="percent-circle percent-circle-right">
-              <div className="right-content"></div>
+            <div className="circle-container circle-container-count">
+              <span className="count-text">{this.state.count}次</span>
             </div>
-            <div className="text-circle">0%</div>
+            <div className="circle-container circle-container-other" >
+              <div className="map"/>
+            </div>
           </div>
         </div>
     );
