@@ -2,17 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import axios from "axios";
 
-const mockData = [
-  {
-    name: "percentage",
-    value: [10, 20, 30, 40, 50]
-  },
-  {
-    name: "count",
-    value: [3, 5, 15, 18, 20]
-  }
-];
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,19 +12,16 @@ class App extends Component {
   }
 
   fetchData = () => {
-    // axios.get('/mock/data').then(response => {
-    //   console.log('------');
-    //   const {data} = response;
-    //
-    //   this.setState({...data});
-    //   this.renderPercentage(data.percentage || 0.1)
-    // })
-      this.renderPercentage(10)
+    axios.get('/rubbish/data').then(response => {
+      const {data} = response;
 
+      this.setState({...data});
+      this.renderPercentage(data.percentage || 0.1)
+    })
   };
 
   componentDidMount() {
-    setInterval(this.fetchData, 1000)
+    setInterval(this.fetchData, 2000)
   }
 
   renderPercentage(percentage) {
@@ -93,7 +79,7 @@ class App extends Component {
             <div className="percent-circle percent-circle-right">
               <div className="right-content"></div>
             </div>
-            <div className="text-circle">10%</div>
+            <div className="text-circle">0%</div>
           </div>
         </div>
     );

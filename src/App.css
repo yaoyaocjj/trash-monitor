@@ -143,7 +143,7 @@
 
 .circle-container-count {
   left: 50%;
-  font-size: 40px;
+  font-size: 23px;
   font-weight: bold;
   color: #4f4f4f;
 }
@@ -153,10 +153,11 @@
 }
 
 .map {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   background: url("./resource/map.png") 100% no-repeat;
   background-size: cover;
+  margin: 15px 0 0 15px;
 }
 
 .count-text {
@@ -223,7 +224,7 @@
   border-radius:100%;
   background: #4f4f4f;
   color:#eeeeee;
-  font-size: 40px;
+  font-size: 23px;
   font-weight: bold;
 }
 
